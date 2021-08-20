@@ -1,28 +1,17 @@
 function computerPlay() {
     const gameOptions = ['ROCK', 'PAPER', 'SCISSORS'];
-    const computerSelection = Math.floor(Math.random() * gameOptions.length);
-    return gameOptions[computerSelection];
+    const computerChoice = Math.floor(Math.random() * gameOptions.length);
+    return gameOptions[computerChoice];
 }
 
-/* function playRound(playerSelection, computerSelection) {
-    const playerSelection = prompt('Type in either "Rock", "Paper" or "Scissors":');
-    const computerSelection = computerPlay();
-    playerSelection.toUpperCase();
-    if (playerSelection === 'ROCK' && computerSelection === 'ROCK') {
-        return 'Draw!';
-    } else if (playerSelection === 'ROCK' && computerSelection === 'PAPER') {
-        return 'You lose! Paper beats Rock!';
-    } else if (playerSelection === 'ROCK' && computerSelection === 'SCISSORS') {
-        return 'You win! Rock beats Scissors!';
-    } else {
-        return 'You have to choose either "Rock", "Paper" or "Scissors"!';
-    }
-//error message: playRound is not defined, error type: ReferenceError
-} */
+let playerSelection;
+let computerSelection;
 
+/* ---- Old Version ----
 function playRound(playerSelection, computerSelection) {
     playerSelection = prompt('Type in either "Rock", "Paper" or "Scissors":', 'Rock');
     playerSelection = playerSelection.toUpperCase();
+    computerSelection = computerPlay();
 
     if (playerSelection == 'ROCK' && computerSelection == 'SCISSORS') {
         return 'You won! Rock beats Scissors!';
@@ -48,5 +37,38 @@ function playRound(playerSelection, computerSelection) {
         return 'Draw! Both Scissors!';   
     } else {
         return 'You have to choose either "Rock", "Paper" or "Scissors"!';
+    } 
+} 
+*/
+
+function playRound(playerSelection, computerSelection) {
+    computerSelection = computerPlay();
+    playerSelection = prompt('Type in either "Rock", "Paper" or "Scissors":', 'Rock');
+    playerSelection = playerSelection.toUpperCase();
+    
+    if (playerSelection == computerSelection) {
+        return `Draw! Both ${playerSelection}!`;
+    } else if (
+        (playerSelection == 'ROCK' && computerSelection == 'SCISSORS') ||
+        (playerSelection == 'PAPER' && computerSelection == 'ROCK') ||
+        (playerSelection == 'SCISSORS' && computerSelection == 'PAPER') 
+    ) {
+        return `Yes!! You won! ${playerSelection} beats ${computerSelection}!`;
+    } else if (
+        (playerSelection == 'ROCK' && computerSelection == 'PAPER') ||
+        (playerSelection == 'PAPER' && computerSelection == 'SCISSORS') ||
+        (playerSelection == 'SCISSORS' && computerSelection == 'ROCK')
+    ) {
+        return `Oh no! You lost... ${computerSelection} beats ${playerSelection}.`
+    } else {
+        return 'You have to choose either \'Rock\', \'Paper\' or \'Scissors\'!';
+    }
+}
+
+
+
+function game() {
+    for (let i = 0; i < 5; i++) {
+        console.log(playRound(playerSelection, computerSelection));
     }
 }

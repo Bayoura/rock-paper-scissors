@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;700&family=Montserrat:wght@100;400;500;700&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: whitesmoke;
+    font-family: Montserrat, sans-serif;
+}
+
+header {
+    background-color: grey;
+    color: whitesmoke;
+    padding: 20px;
+    font-family: Cinzel, sans-serif;
+}
+
+.score-board {
+    border: solid black;
+    margin: 15px auto;
+    padding: 10px;
+    width: 200px;
+    position: relative;
+}
+
+.badge {
+    position: absolute;
+}
+
+#user-label {
+    left: -20px;
+    background-color: cyan;
+}
+
+#computer-label {
+    right: -50px;
+    background-color: cyan;
+}
+
+.score-board>span {
+    margin: 0 auto;
+}

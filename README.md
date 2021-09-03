@@ -1,0 +1,2 @@
+This is part of the Odin Project. The first assignment was to build a Rock Paper Scissors Game you would play on the console. It was pure JavaScript.
+The next assignment was to build an UI for the game, so that you have an actual page where you can play. This includes creating buttons for the three options (rock, paper, scissors), making a score board and so on. This part combines JS, HTML and CSS. It's necessary to manipulate the DOM to make the website interactive.

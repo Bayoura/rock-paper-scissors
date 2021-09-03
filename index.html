@@ -8,28 +8,34 @@
         <header><h1>The Weapon Triangle Game</h1></header>
 
         <div class="score-board">
-            <div id="user-label" class="badge">User</div>
-            <div id="computer-label" class="badge">Computer</div>
+            <div id="user-label" class="badge">Warrior</div>
+            <div id="computer-label" class="badge">Enemy</div>
             <span id="user-score">0</span>:<span id="computer-score">0</span>
         </div>
 
-        <div class="result">
-            <p>You win!</p>
+        <div class="guide-container center">
+            <h2>Fighting Guide</h2>
+            <p>Lance beats Sword. Sword beats Axe. Axe beats Lance.</p>
+            <p>Easy as that.</p>
         </div>
 
-        <div class="options">
+        
+        <p id="advice-message" class="center">Choose your weapon wisely!</p>
+        <div class="options center">
             <div id="l" class="option">
                 <img src="images/lance.png" alt="lance">
-            </div>
-            <div id="a" class="option">
-                <img src="images/axe.png" alt="axe">
             </div>
             <div id="s" class="option">
                 <img src="images/sword.png" alt="sword">
             </div>
+            <div id="a" class="option">
+                <img src="images/axe.png" alt="axe">
+            </div>
         </div>
-
-        <p id="advice-message">Choose your weapon wisely!</p>
+        
+        <div class="result center">
+            <p>You win!</p>
+        </div>
         
 
         

@@ -7,39 +7,91 @@
 }
 
 body {
-    background-color: whitesmoke;
+    background-color: rgb(216, 216, 216);
     font-family: Montserrat, sans-serif;
 }
 
 header {
-    background-color: grey;
+    background-color: rgb(70, 70, 70);
     color: whitesmoke;
-    padding: 20px;
+    padding: 30px;
     font-family: Cinzel, sans-serif;
+    text-align: center;
 }
 
 .score-board {
     border: solid black;
-    margin: 15px auto;
-    padding: 10px;
-    width: 200px;
+    border-radius: 5px;
+    margin: 25px auto;
+    padding: 10px 15px;
+    width: 220px;
+    font-size: 2.5rem; /* 40px */
+    text-align: center;
     position: relative;
 }
 
 .badge {
+    background-color: rgb(99, 99, 99);
+    color: whitesmoke;
+    padding: 5px;
+    border-radius: 3px;
+    font-size: 1rem; /* 16px */
+    top: 50%;
+    transform: translate(-50%, -50%); /* centers vertically (only in combination with top: 50%) */
     position: absolute;
 }
 
 #user-label {
-    left: -20px;
-    background-color: cyan;
+    left: -15px;    
 }
 
 #computer-label {
-    right: -50px;
-    background-color: cyan;
+    right: -80px;   
 }
 
-.score-board>span {
-    margin: 0 auto;
+.center {
+    text-align: center;
 }
+
+.guide-container > h2 {
+    margin: 40px 0 10px 0;
+    font-size: 1.875rem; /* 30px */
+}
+
+.guide-container > p {
+    font-size: 1.4375rem; /* 23px */
+}
+
+#advice-message {
+    margin-top: 50px;
+    font-family: Cinzel, sans-serif;
+    font-size: 1.25rem; /* 20px */
+    font-weight: bold;
+}
+
+.option {
+    display: inline-block;
+    margin: 20px;    
+}
+
+.option img {
+    border-radius: 50%;
+    width: 160px;
+    background-color: whitesmoke;
+    transition: all .2s ease-in-out;
+}
+
+.option > img:hover {
+    cursor: pointer;
+    transform: scale(1.1); 
+    background-color: rgb(247, 245, 217);
+}
+
+.result > p {
+    font-size: 2.8125rem; /* 45px */
+    font-family: Cinzel, sans-serif;
+    font-weight: bold;
+    margin: 20px;
+
+}
+

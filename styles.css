@@ -84,7 +84,7 @@ header {
 .option > img:hover {
     cursor: pointer;
     transform: scale(1.1); 
-    background-color: rgb(247, 245, 217);
+    /*background-color: rgb(247, 245, 217);*/
 }
 
 .result > p {
@@ -113,4 +113,20 @@ a:visited {
 
 a:hover {
     text-decoration: underline;
+}
+
+.win-glow {
+    border: 6px rgb(217, 255, 209) solid;
+    box-shadow: 0 0 10px rgb(149, 250, 136);
+    
+}
+
+.lose-glow {
+    border: 6px rgb(253, 181, 181) solid;
+    box-shadow: 0 0 10px #fa6b6b;
+}
+
+.draw-glow {
+    border: 6px rgb(182, 182, 182) solid;
+    box-shadow: 0 0 10px rgb(95, 95, 95);
 }

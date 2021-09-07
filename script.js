@@ -12,6 +12,7 @@ const result_p = document.querySelector('.result > p');
 const lance_img = document.getElementById('lance');
 const sword_img = document.getElementById('sword');
 const axe_img = document.getElementById('axe');
+const restartButton_button = document.getElementById('restart-btn');
 
 
 function main() {
@@ -29,7 +30,7 @@ function computerPlay() {
 }
 
 function playRound(userSelection, computerSelection) {
-    computerSelection = computerPlay();
+    computerSelection = computerPlay();    
 
     if (userSelection == computerSelection) {
         draw(userSelection);
@@ -48,7 +49,25 @@ function playRound(userSelection, computerSelection) {
     }
 }
 
-//the name of the parameters don't matter
+function declareWinner() {   
+    (userScore > computerScore) ? result_p.textContent = 'You have won this tournament!' : result_p.textContent = 'You have lost this tournament!';
+    restartButton_button.classList.remove('hide-btn');
+    restartButton_button.classList.add('show-btn');
+    restartButton_button.addEventListener('click', resetGame);
+}
+
+function resetGame() {
+    userScore = 0; 
+    computerScore = 0;
+    userScore_span.textContent = userScore;
+    computerScore_span.textContent = computerScore;
+    restartButton_button.classList.remove('show-btn');
+    restartButton_button.classList.add('hide-btn');
+    result_p.textContent = '';
+    //window.location.reload();
+}
+
+//the names of the parameters don't matter
 //the function gets userSelection and computerSelection passed as arguments
 function win(userChoice, computerChoice) {
     userScore++;
@@ -58,7 +77,8 @@ function win(userChoice, computerChoice) {
     You have won this fight, warrior!`;
     const userChoice_img = document.getElementById(userChoice);
     userChoice_img.classList.add('win-glow');
-    setTimeout(() => userChoice_img.classList.remove('win-glow'), 350);
+    setTimeout(() => userChoice_img.classList.remove('win-glow'), 350); 
+    if (userScore === 5 || computerScore === 5) declareWinner();  
 }
 
 function lose(userChoice, computerChoice) {
@@ -70,6 +90,7 @@ function lose(userChoice, computerChoice) {
     const userChoice_img = document.getElementById(userChoice);
     userChoice_img.classList.add('lose-glow');
     setTimeout(() => userChoice_img.classList.remove('lose-glow'), 350);
+    if (userScore === 5 || computerScore === 5) declareWinner();
 }
 
 function draw(userChoice) {
@@ -83,7 +104,7 @@ function draw(userChoice) {
 /*
 function game() {
     for (let i = 0; i < 5; i++) {
-        console.log(playRound(userSelection, computerSelection));
+        playRound(userSelection, computerSelection);
     }
 }
 */

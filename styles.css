@@ -84,7 +84,6 @@ header {
 .option > img:hover {
     cursor: pointer;
     transform: scale(1.1); 
-    /*background-color: rgb(247, 245, 217);*/
 }
 
 .result > p {
@@ -152,4 +151,8 @@ a:hover {
     transform: scale(1.1);
     background-color: rgb(70, 70, 70);
     color: whitesmoke;
+}
+
+.stopGame {
+    opacity: 0.5;
 }

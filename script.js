@@ -1,5 +1,3 @@
-//Greetings, warrior! Welcome to the great Tournament! You will have to withstand five rounds of fighting against mighty opponents. Don't underestimate them, for they are unpredictable foes! For each new fight you may choose a new weapon.
-
 let userScore = 0;
 let computerScore = 0;
 
@@ -14,14 +12,13 @@ const sword_img = document.getElementById('sword');
 const axe_img = document.getElementById('axe');
 const restartButton_button = document.getElementById('restart-btn');
 
-
 function main() {
-    lance_img.addEventListener('click', () => playRound('lance', computerPlay));
-    sword_img.addEventListener('click', () => playRound('sword', computerPlay));
-    axe_img.addEventListener('click', () => playRound('axe', computerPlay));
+    lance_img.addEventListener('click', lanceGame = () => playRound('lance', computerPlay));
+    sword_img.addEventListener('click', swordGame = () => playRound('sword', computerPlay));
+    axe_img.addEventListener('click', axeGame = () => playRound('axe', computerPlay));
 }
-
-main();
+//The functions have to be named (lanceGame etc), otherwise removing the EventListener later will fail
+//You'll need to be able to referene the functions
 
 function computerPlay() {
     const gameOptions = ['lance', 'sword', 'axe'];
@@ -49,24 +46,6 @@ function playRound(userSelection, computerSelection) {
     }
 }
 
-function declareWinner() {   
-    (userScore > computerScore) ? result_p.textContent = 'You have won this tournament!' : result_p.textContent = 'You have lost this tournament!';
-    restartButton_button.classList.remove('hide-btn');
-    restartButton_button.classList.add('show-btn');
-    restartButton_button.addEventListener('click', resetGame);
-}
-
-function resetGame() {
-    userScore = 0; 
-    computerScore = 0;
-    userScore_span.textContent = userScore;
-    computerScore_span.textContent = computerScore;
-    restartButton_button.classList.remove('show-btn');
-    restartButton_button.classList.add('hide-btn');
-    result_p.textContent = '';
-    //window.location.reload();
-}
-
 //the names of the parameters don't matter
 //the function gets userSelection and computerSelection passed as arguments
 function win(userChoice, computerChoice) {
@@ -78,7 +57,7 @@ function win(userChoice, computerChoice) {
     const userChoice_img = document.getElementById(userChoice);
     userChoice_img.classList.add('win-glow');
     setTimeout(() => userChoice_img.classList.remove('win-glow'), 350); 
-    if (userScore === 5 || computerScore === 5) declareWinner();  
+    if (userScore === 5 || computerScore === 5) declareWinner(); 
 }
 
 function lose(userChoice, computerChoice) {
@@ -101,10 +80,36 @@ function draw(userChoice) {
     setTimeout(() => userChoice_img.classList.remove('draw-glow'), 350);
 }
 
-/*
-function game() {
-    for (let i = 0; i < 5; i++) {
-        playRound(userSelection, computerSelection);
-    }
+function stopGame() {
+    lance_img.removeEventListener('click', lanceGame);
+    sword_img.removeEventListener('click', swordGame);
+    axe_img.removeEventListener('click', axeGame);
+    setTimeout(() => lance_img.classList.add('stopGame'), 300);
+    setTimeout(() => sword_img.classList.add('stopGame'), 300);
+    setTimeout(() => axe_img.classList.add('stopGame'), 300);
 }
-*/
+
+function declareWinner() {   
+    stopGame();
+    (userScore > computerScore) ? result_p.textContent = 'You have won this tournament!' : result_p.textContent = 'You have lost this tournament!';
+    restartButton_button.classList.remove('hide-btn');
+    restartButton_button.classList.add('show-btn');
+    restartButton_button.addEventListener('click', resetGame);
+}
+
+//window.location.reload() would also work 
+function resetGame() {
+    userScore = 0; 
+    computerScore = 0;
+    userScore_span.textContent = userScore;
+    computerScore_span.textContent = computerScore;
+    restartButton_button.classList.remove('show-btn');
+    restartButton_button.classList.add('hide-btn');
+    result_p.textContent = '';
+    lance_img.classList.remove('stopGame');
+    sword_img.classList.remove('stopGame');
+    axe_img.classList.remove('stopGame');
+    main();
+}
+
+main();

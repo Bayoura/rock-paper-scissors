@@ -89,6 +89,7 @@ header {
     width: 160px;
     background-color: whitesmoke;
     transition: all .2s ease-in-out;
+    -webkit-user-drag: none;
 }
 
 .option > img:hover {
